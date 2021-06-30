@@ -39,9 +39,9 @@ if ( $_POST ) {
 }
 
 ?>
-<h2 id="add-new-user">تنظیمات افزونه حمایت مالی - پی‌پینگ</h2>
-<h2 id="add-new-user">جمع تمام پرداخت ها : <?php echo get_option("payPingDonate_TotalAmount"); ?>  تومان</h2>
-<h2 id="add-new-user">برای استفاده تنها کافی است کد زیر را درون بخشی از برگه یا نوشته خود قرار دهید  [PayPingDonate]</h2>
+<h2 id="add-new-user">تنظیمات افزونهٔ حمایت مالی - پی‌پینگ</h2>
+<h2 id="add-new-user">جمع همهٔ پرداخت‌ها: <?php echo get_option("payPingDonate_TotalAmount"); ?>  تومان</h2>
+<h2 id="add-new-user">برای استفاده، تنها کافی است کد زیر را درون بخشی از برگه یا نوشتهٔ خود قرار دهید  [PayPingDonate]</h2>
 <form method="post">
   <table class="form-table">
     <tbody>
@@ -53,7 +53,7 @@ if ( $_POST ) {
         </td>
       </tr>
       <tr>
-        <th><label for="payPingDonate_IsOK">متن پرداخت موفق</label></th>
+        <th><label for="payPingDonate_IsOK">متن پرداخت موفّق</label></th>
         <td><input type="text" class="regular-text" value="<?php echo get_option( 'payPingDonate_IsOK'); ?>" id="payPingDonate_IsOK" name="payPingDonate_IsOK"></td>
       </tr>
       <tr>
@@ -90,7 +90,7 @@ if ( $_POST ) {
       
     </tbody>
   </table>
-  <p class="submit"><input type="submit" value="به روز رسانی تنظیمات" class="button button-primary" id="submit" name="submit"></p>
+  <p class="submit"><input type="submit" value="به‌روزرسانی تنظیمات" class="button button-primary" id="submit" name="submit"></p>
 </form>
 
 <script>
