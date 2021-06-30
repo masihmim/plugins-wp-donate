@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: افزونه حمایت مالی پی‌پینگ برای وردپرس
+Plugin Name: افزونهٔ حمایت مالی پی‌پینگ برای وردپرس
 Version: 1.2
-Description: افزونه حمایت مالی از وبسایت ها -- برای استفاده تنها کافی است کد زیر را درون بخشی از برگه یا نوشته خود قرار دهید  [PayPingDonate]
+Description: افزونهٔ حمایت مالی از وبگاه‌ها -- برای استفاده، فقط کافی است کد زیر را درون بخشی از برگه یا نوشتهٔ خود قرار دهید.  [PayPingDonate]
 Plugin URI: https://www.payping.ir/
 Author: Erfan Ebrahimi
 Author URI: http://erfanebrahimi.ir/
@@ -18,7 +18,7 @@ if ( is_admin() )
 	add_action('admin_menu', 'payPingDonate_AdminMenuItem');
 	function payPingDonate_AdminMenuItem()
 	{
-		add_menu_page( 'تنظیمات افزونه حمایت مالی - پی‌پینگ', 'حمایت مالی', 'administrator', 'payPingDonate_MenuItem', 'payPingDonate_MainPageHTML', 'dashicons-plus-alt' );
+		add_menu_page( 'تنظیمات افزونهٔ حمایت مالی - پی‌پینگ', 'حمایت مالی', 'administrator', 'payPingDonate_MenuItem', 'payPingDonate_MainPageHTML', 'dashicons-plus-alt' );
 		add_submenu_page('payPingDonate_MenuItem','نمایش حامیان مالی','نمایش حامیان مالی', 'administrator','payPingDonate_Hamian','payPingDonate_HamianHTML');
 	}
 }
@@ -63,7 +63,7 @@ function PayPingDonateForm() {
 
 		if($MerchantID == '')
 		{
-			$error = 'کد دروازه پرداخت وارد نشده است' . "<br>\r\n";
+			$error = 'کد دروازهٔ پرداخت، وارد نشده است' . "<br>\r\n";
 		}
 
 
@@ -79,7 +79,7 @@ function PayPingDonateForm() {
 		}
 		else
 		{
-			$error .= 'مبلغ به درستی وارد نشده است' . "<br>\r\n";
+			$error .= 'مبلغ به درستی وارد نشده است' . "<br>\r\n";
 		}
 
 		$Description =    filter_input(INPUT_POST, 'payPingDonate_Description', FILTER_SANITIZE_SPECIAL_CHARS);  // Required
@@ -147,16 +147,16 @@ function PayPingDonateForm() {
 								exit;
 
 						} else {
-							$error .= ' تراکنش ناموفق بود- شرح خطا : عدم وجود کد ارجاع '. "<br>\r\n";
+							$error .= ' تراکنش ناموفّق بود- شرح خطا: عدم وجود کد ارجاع '. "<br>\r\n";
 						}
 					} elseif ($header['http_code'] == 400) {
-						$error .= ' تراکنش ناموفق بود- شرح خطا : ' . implode('. ',array_values (json_decode($response,true))). "<br>\r\n" ;
+						$error .= ' تراکنش ناموفّق بود- شرح خطا: ' . implode('. ',array_values (json_decode($response,true))). "<br>\r\n" ;
 					} else {
-						$error .= ' تراکنش ناموفق بود- شرح خطا : ' . payPingDonate_GetResaultStatusString($header['http_code']) . '(' . $header['http_code'] . ')'. "<br>\r\n";
+						$error .= ' تراکنش ناموفّق بود- شرح خطا: ' . payPingDonate_GetResaultStatusString($header['http_code']) . '(' . $header['http_code'] . ')'. "<br>\r\n";
 					}
 				}
 			} catch (Exception $e){
-				$error .= ' تراکنش ناموفق بود- شرح خطا سمت برنامه شما : ' . $e->getMessage(). "<br>\r\n";
+				$error .= ' تراکنش ناموفّق بود- شرح خطا سمت برنامهٔ شما: ' . $e->getMessage(). "<br>\r\n";
 			}
 		}
 	}
@@ -175,7 +175,7 @@ function PayPingDonateForm() {
 		$Record = payPingDonate_GetDonate($id);
 		if( $Record  === false)
 		{
-			$error .= 'چنین تراکنشی در سایت ثبت نشده است' . "<br>\r\n";
+			$error .= 'چنین تراکنشی در وبگاه ثبت نشده است' . "<br>\r\n";
 		}
 		else
 		{
@@ -207,7 +207,7 @@ function PayPingDonateForm() {
 				if ($err) {
 					payPingDonate_ChangeStatus($id, 'ERROR');
 					$error .= get_option( 'payPingDonate_IsError') . "<br>\r\n";
-					$error .= 'خطا در ارتباط به پی‌پینگ : شرح خطا '.$err. "<br>\r\n";
+					$error .= 'خطا در برقراری ارتباط با پی‌پینگ: شرح خطا '.$err. "<br>\r\n";
 					payPingDonate_SetAuthority($id, $refid);
 				} else {
 					if ($header['http_code'] == 200) {
@@ -223,25 +223,25 @@ function PayPingDonateForm() {
 							payPingDonate_ChangeStatus($id, 'ERROR');
 							$error .= get_option( 'payPingDonate_IsError') . "<br>\r\n";
 							payPingDonate_SetAuthority($id, $refid);
-							$error .= 'متافسانه سامانه قادر به دریافت کد پیگیری نمی باشد! نتیجه درخواست : ' . payPingDonate_GetResaultStatusString($header['http_code']) . '(' . $header['http_code'] . ')' . "<br>\r\n";
+							$error .= 'متأسّفانه سامانه قادر به دریافت کد پیگیری نمی‌باشد! نتیجهٔ درخواست: ' . payPingDonate_GetResaultStatusString($header['http_code']) . '(' . $header['http_code'] . ')' . "<br>\r\n";
 						}
 					} elseif ($header['http_code'] == 400) {
 						payPingDonate_ChangeStatus($id, 'ERROR');
 						$error .= get_option( 'payPingDonate_IsError') . "<br>\r\n";
 						payPingDonate_SetAuthority($id, $refid);
-						$error .= 'تراکنش ناموفق بود- شرح خطا : ' .  implode('. ',array_values (json_decode($response,true))) . "<br>\r\n";
+						$error .= 'تراکنش ناموفّق بود- شرح خطا: ' .  implode('. ',array_values (json_decode($response,true))) . "<br>\r\n";
 					}  else {
 						payPingDonate_ChangeStatus($id, 'ERROR');
 						$error .= get_option( 'payPingDonate_IsError') . "<br>\r\n";
 						payPingDonate_SetAuthority($id, $refid);
-						$error .= ' تراکنش ناموفق بود- شرح خطا : ' . payPingDonate_GetResaultStatusString($header['http_code']) . '(' . $header['http_code'] . ')'. "<br>\r\n";
+						$error .= ' تراکنش ناموفّق بود- شرح خطا: ' . payPingDonate_GetResaultStatusString($header['http_code']) . '(' . $header['http_code'] . ')'. "<br>\r\n";
 					}
 				}
 			} catch (Exception $e){
 				payPingDonate_ChangeStatus($id, 'ERROR');
 				$error .= get_option( 'payPingDonate_IsError') . "<br>\r\n";
 				payPingDonate_SetAuthority($id, $refid);
-				$error .= ' تراکنش ناموفق بود- شرح خطا سمت برنامه شما : ' . $e->getMessage(). "<br>\r\n";
+				$error .= ' تراکنش ناموفّق بود- شرح خطا سمت برنامهٔ شما: ' . $e->getMessage(). "<br>\r\n";
 			}
 
 		}
@@ -293,22 +293,22 @@ function PayPingDonateForm() {
               </div>
               
               <div class="payPingDonate_FormItem">
-                <label class="payPingDonate_FormLabel">نام و نام خانوادگی :</label>
+                <label class="payPingDonate_FormLabel">نام و نام خانوادگی:</label>
                 <div class="payPingDonate_ItemInput"><input type="text" name="payPingDonate_Name" value="'. $Name .'" /></div>
               </div>
               
               <div class="payPingDonate_FormItem">
-                <label class="payPingDonate_FormLabel">تلفن همراه :</label>
+                <label class="payPingDonate_FormLabel">تلفن همراه:</label>
                 <div class="payPingDonate_ItemInput"><input type="text" name="mobile" value="'. $Mobile .'" /></div>
               </div>
               
               <div class="payPingDonate_FormItem">
-                <label class="payPingDonate_FormLabel">ایمیل :</label>
+                <label class="payPingDonate_FormLabel">رایانشانی:</label>
                 <div class="payPingDonate_ItemInput"><input type="text" name="email" style="direction:ltr;text-align:left;" value="'. $Email .'" /></div>
               </div>
               
               <div class="payPingDonate_FormItem">
-                <label class="payPingDonate_FormLabel">توضیحات :</label>
+                <label class="payPingDonate_FormLabel">توضیحات:</label>
                 <div class="payPingDonate_ItemInput"><input type="text" name="payPingDonate_Description" value="'. $Description .'" /></div>
               </div>
               
@@ -353,8 +353,8 @@ function payPingDonate_CreateDatabaseTables()
 	// Other Options
 	add_option("payPingDonate_TotalAmount", 0, '', 'yes');
 	add_option("payPingDonate_TotalPayment", 0, '', 'yes');
-	add_option("payPingDonate_IsOK", 'با تشکر پرداخت شما به درستی انجام شد.', '', 'yes');
-	add_option("payPingDonate_IsError", 'متاسفانه پرداخت انجام نشد.', '', 'yes');
+	add_option("payPingDonate_IsOK", 'با تشکّر، پرداخت شما به درستی انجام شد.', '', 'yes');
+	add_option("payPingDonate_IsError", 'متأسّفانه پرداخت انجام نشد.', '', 'yes');
 
 	$style = '#payPingDonate_MainForm {
   width: 400px;
@@ -525,25 +525,25 @@ function payPingDonate_GetResaultStatusString($StatusNumber)
 {
 	switch($StatusNumber) {
 		case 200 :
-			return 'عملیات با موفقیت انجام شد';
+			return 'عملیات با موفّقیت انجام شد';
 			break ;
 		case 400 :
 			return 'مشکلی در ارسال درخواست وجود دارد';
 			break ;
 		case 500 :
-			return 'مشکلی در سرور رخ داده است';
+			return 'مشکلی در سرور رخ داده است';
 			break;
 		case 503 :
-			return 'سرور در حال حاضر قادر به پاسخگویی نمی‌باشد';
+			return 'سرور هم‌اکنون قادر به پاسخگویی نمی‌باشد';
 			break;
 		case 401 :
-			return 'عدم دسترسی';
+			return 'عدم دسترسی';
 			break;
 		case 403 :
-			return 'دسترسی غیر مجاز';
+			return 'دسترسی غیرمجاز';
 			break;
 		case 404 :
-			return 'آیتم درخواستی مورد نظر موجود نمی‌باشد';
+			return 'آیتم درخواستی مورد نظر موجود نمی‌باشد';
 			break;
 	}
 
