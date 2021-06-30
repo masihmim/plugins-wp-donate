@@ -285,7 +285,7 @@ function PayPingDonateForm() {
 
 	$out .=      '<form method="post">
               <div class="payPingDonate_FormItem">
-                <label class="payPingDonate_FormLabel">مبلغ :</label>
+                <label class="payPingDonate_FormLabel">مبلغ:</label>
                 <div class="payPingDonate_ItemInput">
                   <input style="width:60%" type="text" name="payPingDonate_Amount" value="'. $Amount .'" />
                   <span style="margin-right:10px;">'. $payPingDonate_Unit .'</span>
