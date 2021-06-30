@@ -13,7 +13,7 @@
 
 <input type="hidden" id="_wpnonce" name="_wpnonce" value="8aa9aa1697" /><input type="hidden" name="_wp_http_referer" value="/Project/wp-admin/edit.php" />	<div class="tablenav top">
 
-<div class='tablenav-pages one-page'><span class="displaying-num">مبلغ کل حمایت شده :<?php echo get_option("payPingDonate_TotalAmount");?> تومان</span>
+<div class='tablenav-pages one-page'><span class="displaying-num">کلّ مبلغ حمایت‌شده:<?php echo get_option("payPingDonate_TotalAmount");?> تومان</span>
 </div>
 </div>
 <input type="hidden" name="mode" value="list" />
@@ -28,8 +28,8 @@
 		<span>نام و نام خانوادگی</span><span class="sorting-indicator"></span></th>
 		<th scope='col' id='author' class='manage-column column-author'  style="">مبلغ (تومان)</th>
 		<th scope='col' id='categories' class='manage-column column-categories'  style="">موبایل</th>
-		<th scope='col' id='categories' class='manage-column column-categories'  style="">شماره پیگیری</th>
-		<th scope='col' id='tags' class='manage-column column-tags'  style="">ایمیل</th>
+		<th scope='col' id='categories' class='manage-column column-categories'  style="">شمارهٔ پیگیری</th>
+		<th scope='col' id='tags' class='manage-column column-tags'  style="">رایانشانی</th>
 		<th scope='col' id='comments' class='manage-column column-tags'  style="">توضیحات</th>
 		<th scope='col' id='date' class='manage-column column-date sortable asc'  style=""><span>تاریخ</span><span class="sorting-indicator"></span></th>
 	</tr>
@@ -39,11 +39,11 @@
   <tr>
 		<th scope='col' id='cb' class='manage-column column-cb check-column'  style=""><label class="screen-reader-text" for="cb-select-all-1">گزینش همه</label><input id="cb-select-all-1" type="checkbox" /></th>
 		<th scope='col' id='title' class='manage-column column-title sortable desc'  style="">
-		<span>نام و نام خانوادگی</span><span class="sorting-indicator"></span></th>
+		<span>نام و نام خانوادگی</span><span class="sorting-indicator"></span></th>
 		<th scope='col' id='author' class='manage-column column-author'  style="">مبلغ (تومان)</th>
 		<th scope='col' id='categories' class='manage-column column-categories'  style="">موبایل</th>
-        <th scope='col' id='categories' class='manage-column column-categories'  style="">شماره پیگیری</th>
-		<th scope='col' id='tags' class='manage-column column-tags'  style="">ایمیل</th>
+        <th scope='col' id='categories' class='manage-column column-categories'  style="">شمارهٔ پیگیری</th>
+		<th scope='col' id='tags' class='manage-column column-tags'  style="">رایانشانی</th>
 		<th scope='col' id='comments' class='manage-column column-tags'  style="">توضیحات</th>
 		<th scope='col' id='date' class='manage-column column-date sortable asc'  style=""><span>تاریخ</span><span class="sorting-indicator"></span></th>
 	</tr>
@@ -60,7 +60,7 @@
 		
 		$End = $page * 30;
 		$Start = $End - 30;
-		// در صفحات بزرگتر از یک اولین رکورد در صفحا قبل نمایش داده شده
+		// در صفحات بزرگ‌تر از یک، اوّلین رکورد در صفحات قبل نمایش داده شده است
 		if($page > 1)
 			$Start ++;
 			
